@@ -80,7 +80,7 @@ jobs:
               break
             fi
           done
-          echo "Will use $(cat "$GITHUB_OUTPUT")
+          echo "Will use $(cat $GITHUB_OUTPUT)"
 
   test:
     name: Test workflows
