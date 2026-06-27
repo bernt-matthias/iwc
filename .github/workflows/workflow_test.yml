@@ -75,10 +75,12 @@ jobs:
           echo "environment=None" >> $GITHUB_OUTPUT
           for repo in $(echo "${{ needs.setup.outputs.repository-list }}" | tr ',' '\n'); do
             if [[ -f "$repo/.wt_instance" ]]; then
+              echo "Found $repo/.wt_instance"
               echo "environment='secret-env'" >> $GITHUB_OUTPUT
               break
             fi
           done
+          echo "Will use $(cat "$GITHUB_OUTPUT")
 
   test:
     name: Test workflows
@@ -94,7 +96,7 @@ jobs:
       galaxy-fork: galaxyproject
       galaxy-branch: release_25.0
       check-outputs: false
-      galaxy-user-key-environment: secret-env
+      galaxy-user-key-environment: needs.determine_env.outputs.environment
 
   combine_outputs:
     # same as tool step
