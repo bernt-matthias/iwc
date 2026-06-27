@@ -83,7 +83,7 @@ jobs:
   test:
     name: Test workflows
     needs: [setup, determine_env]
-    if: ${{ needs.determine_env.outputs.use_secret == 'true' && needs.setup.outputs.repository-list != '' }}
+    if: ${{ needs.setup.outputs.repository-list != '' }}
     uses: ./.github/workflows/test_workflows.yml
     with:
       galaxy-head-sha: ${{ needs.setup.outputs.galaxy-head-sha }}
