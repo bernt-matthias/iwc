@@ -81,7 +81,7 @@ jobs:
     - name: Free Disk Space (Ubuntu)
       uses: insightsengineering/disk-space-reclaimer@v1
     - name: Planemo test workflows
-      uses: galaxyproject/planemo-ci-action@v1
+      uses: bernt-matthias/planemo-ci-action@main
       id: test-workflows
       with:
         mode: test
